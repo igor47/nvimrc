@@ -46,6 +46,9 @@ return packer.startup(function(use)
   -- Have packer manage itself
   use { "wbthomason/packer.nvim", commit = "6afb67460283f0e990d35d229fd38fdc04063e0a" }
 
+  -- plenery is a collection of functions used by lots of other plugins
+  use "nvim-lua/plenary.nvim"
+
   -- impatient speeds up neovim loading by caching lua plugins
   use { "lewis6991/impatient.nvim", commit = "b842e16ecc1a700f62adb9802f8355b99b52a5a6" }
   
