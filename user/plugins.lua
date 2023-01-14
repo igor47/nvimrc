@@ -51,6 +51,9 @@ return packer.startup(function(use)
 
   -- impatient speeds up neovim loading by caching lua plugins
   use { "lewis6991/impatient.nvim", commit = "b842e16ecc1a700f62adb9802f8355b99b52a5a6" }
+
+  -- colorscheme nightfox:
+  use "EdenEast/nightfox.nvim"
   
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
