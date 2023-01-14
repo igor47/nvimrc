@@ -5,7 +5,8 @@
 local keymap = vim.keymap.set
 
 -- Silent keymap option
-local opts = { silent = true }
+local silent = { silent = true }
+local nowait = { silent = true, nowait = true }
 
 --Remap comma (,) as leader key
 keymap("", ",", "<Nop>", opts)
@@ -19,6 +20,9 @@ vim.g.mapleader = ","
 --   term_mode = "t",
 --   command_mode = "c",
 
--- Normal --
--- Better window navigation
-keymap("n", "<leader>sv", "<cmd>lua reload_nvim_conf()<CR>", opts)
+keymap("n", "<leader>sv", "<cmd>lua reload_nvim_conf()<CR>", silent)
+keymap("n", "<leader>/", "<cmd>nohlsearch<CR>", nowait) -- clear highlighted search
+
+-- reset folds with a single button (F5)
+keymap("", "<F5>", "<ESC>zmzrzv", silent)
+
