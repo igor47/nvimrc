@@ -77,6 +77,9 @@ return packer.startup(function(use)
   -- lualine
   use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
 
+  -- indent line
+  use { "lukas-reineke/indent-blankline.nvim", tag = "v2.20.2" }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
