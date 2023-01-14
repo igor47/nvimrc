@@ -26,3 +26,8 @@ keymap("n", "<leader>/", "<cmd>nohlsearch<CR>", nowait) -- clear highlighted sea
 -- reset folds with a single button (F5)
 keymap("", "<F5>", "<ESC>zmzrzv", silent)
 
+-- Better window navigation
+keymap("n", "<C-h>", "<C-w>h", opts)
+keymap("n", "<C-j>", "<C-w>j", opts)
+keymap("n", "<C-k>", "<C-w>k", opts)
+keymap("n", "<C-l>", "<C-w>l", opts)
