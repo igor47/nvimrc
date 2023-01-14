@@ -27,7 +27,15 @@ keymap("n", "<leader>/", "<cmd>nohlsearch<CR>", nowait) -- clear highlighted sea
 keymap("", "<F5>", "<ESC>zmzrzv", silent)
 
 -- Better window navigation
-keymap("n", "<C-h>", "<C-w>h", opts)
-keymap("n", "<C-j>", "<C-w>j", opts)
-keymap("n", "<C-k>", "<C-w>k", opts)
-keymap("n", "<C-l>", "<C-w>l", opts)
+keymap("n", "<C-h>", "<C-w>h", silent)
+keymap("n", "<C-j>", "<C-w>j", silent)
+keymap("n", "<C-k>", "<C-w>k", silent)
+keymap("n", "<C-l>", "<C-w>l", silent)
+
+-- Telescope 
+-- see: https://github.com/nvim-telescope/telescope.nvim#pickers
+local telescope = require('telescope.builtin')
+keymap("n", "<C-p>", telescope.find_files, {})
+--keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
+--keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
+keymap("n", "<leader>b", telescope.buffers, {})
