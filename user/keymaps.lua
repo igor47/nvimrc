@@ -39,3 +39,26 @@ keymap("n", "<C-p>", telescope.find_files, {})
 --keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
 --keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
 keymap("n", "<leader>b", telescope.buffers, {})
+
+-- LSP keymaps
+-- defined as suggested here: https://neovim.io/doc/user/lsp.html
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(args)
+    local opts = { buffer = args.buf, noremap = true, silent = true }
+
+    keymap("n", "gD", vim.lsp.buf.declaration, opts)
+    keymap("n", "gd", vim.lsp.buf.definition, opts)
+    keymap("n", "K", vim.lsp.buf.hover, opts)
+    keymap("n", "gI", vim.lsp.buf.implementation, opts)
+    keymap("n", "gr", vim.lsp.buf.references, opts)
+    keymap("n", "gl", vim.diagnostic.open_float, opts)
+    keymap("n", "<leader>ai", "<cmd>LspInfo<cr>", opts)
+    keymap("n", "<leader>aI", "<cmd>Mason<cr>", opts)
+    keymap("n", "<leader>aa", vim.lsp.buf.code_action, opts)
+    keymap("n", "<leader>aj", vim.diagnostic.goto_next, opts)
+    keymap("n", "<leader>ak", vim.diagnostic.goto_prev, opts)
+    keymap("n", "<leader>ar", vim.lsp.buf.rename, opts)
+    keymap("n", "<leader>as", vim.lsp.buf.signature_help, opts)
+    keymap("n", "<leader>aq", vim.diagnostic.setloclist, opts)
+  end
+})
