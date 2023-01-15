@@ -80,6 +80,16 @@ return packer.startup(function(use)
   -- indent line
   use { "lukas-reineke/indent-blankline.nvim", tag = "v2.20.2" }
 
+  -- LSP config
+  use { "neovim/nvim-lspconfig", tag = "v0.1.4" }  -- to configure built-in LSP
+
+  --  mason
+  use { "williamboman/mason.nvim" }  -- installs external plugins e.g. language servers
+  use { "williamboman/mason-lspconfig.nvim" }
+
+  -- null-ls (for formatters and linters)
+  use { "jose-elias-alvarez/null-ls.nvim" }
+  --
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
