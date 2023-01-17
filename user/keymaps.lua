@@ -26,6 +26,9 @@ keymap("n", "<leader>/", "<cmd>nohlsearch<CR>", nowait) -- clear highlighted sea
 -- reset folds with a single button (F5)
 keymap("", "<F5>", "<ESC>zmzrzv", silent)
 
+-- echo current filename
+keymap("n", "<leader>n", ":echo @%<CR>", silent)
+
 -- Better window navigation
 keymap("n", "<C-h>", "<C-w>h", silent)
 keymap("n", "<C-j>", "<C-w>j", silent)
@@ -35,10 +38,11 @@ keymap("n", "<C-l>", "<C-w>l", silent)
 -- Telescope 
 -- see: https://github.com/nvim-telescope/telescope.nvim#pickers
 local telescope = require('telescope.builtin')
-keymap("n", "<C-p>", telescope.find_files, {})
+keymap("n", "<C-p>", telescope.git_files, {})
 --keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
 --keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
 keymap("n", "<leader>b", telescope.buffers, {})
+keymap("n", "<leader>tj", telescope.current_buffer_fuzzy_find, {})
 
 -- LSP keymaps
 -- defined as suggested here: https://neovim.io/doc/user/lsp.html
