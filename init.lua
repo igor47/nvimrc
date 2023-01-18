@@ -13,3 +13,5 @@ require "user.indentline"
 require "user.mason"
 require "user.lsp"
 require "user.null-ls"
+
+require "user.colorizer"

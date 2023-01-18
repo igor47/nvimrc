@@ -92,7 +92,7 @@ return packer.startup(function(use)
   use { "jose-elias-alvarez/null-ls.nvim" }
 
   -- colorizer sets colors on color strings -- what fun!
-  use { "norcalli/nvim-colorizer.lua", config=function () require('colorizer').setup() end }
+  use { "norcalli/nvim-colorizer.lua" }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
