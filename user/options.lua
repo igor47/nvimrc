@@ -31,5 +31,7 @@ vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 
--- folds
+-- folds using treesitter
 vim.opt.foldmethod = "indent"
+--vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
