@@ -38,11 +38,14 @@ keymap("n", "<C-l>", "<C-w>l", silent)
 -- Telescope 
 -- see: https://github.com/nvim-telescope/telescope.nvim#pickers
 local telescope = require('telescope.builtin')
-keymap("n", "<C-p>", telescope.git_files, {})
---keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
---keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
-keymap("n", "<leader>b", telescope.buffers, {})
-keymap("n", "<leader>tj", telescope.current_buffer_fuzzy_find, {})
+local telescope_status_ok, telescope = pcall(require, "telescope.builtin")
+if telescope_status_ok then
+  keymap("n", "<C-p>", telescope.git_files, {})
+  --keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
+  --keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
+  keymap("n", "<leader>b", telescope.buffers, {})
+  keymap("n", "<leader>tj", telescope.current_buffer_fuzzy_find, {})
+end
 
 -- LSP keymaps
 -- defined as suggested here: https://neovim.io/doc/user/lsp.html
