@@ -94,6 +94,9 @@ return packer.startup(function(use)
   -- colorizer sets colors on color strings -- what fun!
   use { "norcalli/nvim-colorizer.lua" }
 
+  -- auto-encrypt files with .pgp extension
+  use "jamessan/vim-gnupg"
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
