@@ -9,7 +9,7 @@ local silent = { silent = true }
 local nowait = { silent = true, nowait = true }
 
 --Remap comma (,) as leader key
-keymap("", ",", "<Nop>", opts)
+keymap("", ",", "<Nop>", nowait)
 vim.g.mapleader = ","
 
 -- Modes
@@ -37,7 +37,6 @@ keymap("n", "<C-l>", "<C-w>l", silent)
 
 -- Telescope 
 -- see: https://github.com/nvim-telescope/telescope.nvim#pickers
-local telescope = require('telescope.builtin')
 local telescope_status_ok, telescope = pcall(require, "telescope.builtin")
 if telescope_status_ok then
   keymap("n", "<C-p>", telescope.git_files, {})

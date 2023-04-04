@@ -77,11 +77,11 @@ return packer.startup(function(use)
   use { "rafamadriz/friendly-snippets", commit = "2be79d8a9b03d4175ba6b3d14b082680de1b31b1" } -- a bunch of snippets to use
 
   -- telescope
-  use { "nvim-telescope/telescope.nvim", tag = "0.1.x", requires = { {'nvim-lua/plenary.nvim'} } }
+  use { "nvim-telescope/telescope.nvim", tag = "0.1.1", requires = { {'nvim-lua/plenary.nvim'} } }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   -- treesitter
-  use { "nvim-treesitter/nvim-treesitter", tag = "v0.8.1" }
+  use { "nvim-treesitter/nvim-treesitter", tag = "v0.8.5.2" }
 
   -- lualine
   use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
@@ -89,7 +89,7 @@ return packer.startup(function(use)
   -- indent line
   use { "lukas-reineke/indent-blankline.nvim", tag = "v2.20.2" }
 
-  -- LSP config
+  -- LSP configure
   use { "neovim/nvim-lspconfig" }  -- to configure built-in LSP
 
   --  mason
@@ -104,6 +104,10 @@ return packer.startup(function(use)
 
   -- auto-encrypt files with .pgp extension
   use "jamessan/vim-gnupg"
+
+  -- github copilot
+  use { "zbirenbaum/copilot.lua" }
+  use { "zbirenbaum/copilot-cmp", after = { "copilot.lua" } }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
