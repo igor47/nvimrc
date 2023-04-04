@@ -17,6 +17,6 @@ require("mason").setup({
 require("mason-lspconfig").setup({
   -- see:
   -- https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
-  ensure_installed = {'arduino_language_server', 'bashls', 'cssls', 'dockerls', 'eslint', 'html', 'tsserver', 'sumneko_lua', 'marksman', 'pylsp', 'sqls', 'taplo', 'vuels'},
+  ensure_installed = {'arduino_language_server', 'bashls', 'cssls', 'dockerls', 'eslint', 'html', 'tsserver', 'lua_ls', 'marksman', 'pylsp', 'sqls', 'taplo', 'vuels'},
   automatic_installation = true
 })

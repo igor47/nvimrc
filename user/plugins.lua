@@ -90,7 +90,7 @@ return packer.startup(function(use)
   use { "lukas-reineke/indent-blankline.nvim", tag = "v2.20.2" }
 
   -- LSP config
-  use { "neovim/nvim-lspconfig", tag = "v0.1.4" }  -- to configure built-in LSP
+  use { "neovim/nvim-lspconfig" }  -- to configure built-in LSP
 
   --  mason
   use { "williamboman/mason.nvim" }  -- installs external plugins e.g. language servers
