@@ -8,6 +8,9 @@ if not snip_status_ok then
   return
 end
 
+-- recommended by nvim-cmp
+vim.opt.completeopt = {'menu', 'menuone', 'noselect'}
+
 require("luasnip/loaders/from_vscode").lazy_load()
 
 local check_backspace = function()
@@ -113,6 +116,7 @@ cmp.setup {
     { name = "luasnip" },
     { name = "buffer" },
     { name = "path" },
+    { name = "nvim_lsp_signature_help" },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
