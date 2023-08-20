@@ -69,6 +69,9 @@ return packer.startup(function(use)
       -- lsp-related completions
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-nvim-lsp-signature-help",
+
+      -- copilot from copilot.vim
+      "hrsh7th/cmp-copilot",
     },
   }
 
@@ -106,8 +109,7 @@ return packer.startup(function(use)
   use "jamessan/vim-gnupg"
 
   -- github copilot
-  use { "zbirenbaum/copilot.lua" }
-  use { "zbirenbaum/copilot-cmp", after = { "copilot.lua" } }
+  use { "github/copilot.vim" }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

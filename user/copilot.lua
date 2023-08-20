@@ -1,3 +1,4 @@
+--[[
 local copilot_status_ok, copilot = pcall(require, "copilot")
 if not copilot_status_ok then
   return
@@ -23,4 +24,4 @@ require("copilot_cmp").setup({
   },
 })
 
-vim.api.nvim_set_hl(0, "CmpItemKindCopilot", {fg ="#6CC644"})
+]]

@@ -47,6 +47,9 @@ local kind_icons = {
   Copilot = "",
 }
 
+-- copilot logo is green, looks nice!
+vim.api.nvim_set_hl(0, "CmpItemKindCopilot", {fg ="#6CC644"})
+
 cmp.setup {
   snippet = {
     expand = function(args)
@@ -112,7 +115,7 @@ cmp.setup {
     end,
   },
   sources = {
-    { name = "copilot", group_index = 2 },
+    { name = "copilot" },
     { name = "nvim_lsp" },
     { name = "nvim_lua" },
     { name = "luasnip" },
