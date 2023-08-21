@@ -44,13 +44,13 @@ packer.init {
 -- Install your plugins here
 return packer.startup(function(use)
   -- Have packer manage itself
-  use { "wbthomason/packer.nvim", commit = "6afb67460283f0e990d35d229fd38fdc04063e0a" }
+  use { "wbthomason/packer.nvim" }
 
   -- plenery is a collection of functions used by lots of other plugins
   use "nvim-lua/plenary.nvim"
 
   -- impatient speeds up neovim loading by caching lua plugins
-  use { "lewis6991/impatient.nvim", commit = "b842e16ecc1a700f62adb9802f8355b99b52a5a6" }
+  use { "lewis6991/impatient.nvim" }
 
   -- colorscheme nightfox:
   use "EdenEast/nightfox.nvim"
@@ -76,15 +76,15 @@ return packer.startup(function(use)
   }
 
   -- snippets
-  use { "L3MON4D3/LuaSnip", commit = "8f8d493e7836f2697df878ef9c128337cbf2bb84" } --snippet engine
-  use { "rafamadriz/friendly-snippets", commit = "2be79d8a9b03d4175ba6b3d14b082680de1b31b1" } -- a bunch of snippets to use
+  use { "L3MON4D3/LuaSnip" } --snippet engine
+  use { "rafamadriz/friendly-snippets" } -- a bunch of snippets to use
 
   -- telescope
-  use { "nvim-telescope/telescope.nvim", tag = "0.1.1", requires = { {'nvim-lua/plenary.nvim'} } }
+  use { "nvim-telescope/telescope.nvim", tag = "0.1.2", requires = { {'nvim-lua/plenary.nvim'} } }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   -- treesitter
-  use { "nvim-treesitter/nvim-treesitter", tag = "v0.8.5.2" }
+  use { "nvim-treesitter/nvim-treesitter", tag = "v0.9.1" }
 
   -- lualine
   use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
