@@ -80,7 +80,7 @@ return packer.startup(function(use)
   use { "rafamadriz/friendly-snippets" } -- a bunch of snippets to use
 
   -- telescope
-  use { "nvim-telescope/telescope.nvim", tag = "0.1.2", requires = { {'nvim-lua/plenary.nvim'} } }
+  use { "nvim-telescope/telescope.nvim", tag = "0.1.3", requires = { {'nvim-lua/plenary.nvim'} } }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   -- treesitter

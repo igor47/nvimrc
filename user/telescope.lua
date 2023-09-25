@@ -38,3 +38,8 @@ telescope.setup {
 }
 
 require('telescope').load_extension('fzf')
+
+--[[ disable folds for telescope results. see:
+  https://github.com/nvim-telescope/telescope.nvim/issues/991
+]]
+vim.api.nvim_create_autocmd("FileType", { pattern = "TelescopeResults", command = [[setlocal nofoldenable]] })
