@@ -111,6 +111,10 @@ return packer.startup(function(use)
   -- github copilot
   use { "github/copilot.vim" }
 
+  -- syntax highlight for justfiles
+  --use { 'NoahTheDuke/vim-just' }
+  use { "IndianBoy42/tree-sitter-just" }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
