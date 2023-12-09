@@ -71,4 +71,13 @@ require("mason-lspconfig").setup_handlers({
       }
     })
   end,
+  ["ruff_lsp"] = function ()
+    lspconfig.ruff_lsp.setup({
+      capabilities = capabilities,
+      on_attach = function (client, bufnr)
+        -- Disable hover in favor of Pyright
+        client.server_capabilities.hoverProvider = false
+      end,
+    })
+  end,
 })

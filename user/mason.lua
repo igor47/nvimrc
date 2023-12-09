@@ -17,6 +17,10 @@ require("mason").setup({
 require("mason-lspconfig").setup({
   -- see:
   -- https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
-  ensure_installed = {'arduino_language_server', 'bashls', 'cssls', 'dockerls', 'eslint', 'html', 'tsserver', 'lua_ls', 'marksman', 'pyright', 'black', 'sqlls', 'taplo', 'vuels', 'rust_analyzer'},
+  ensure_installed = {
+    'arduino_language_server', 'bashls', 'cssls', 'dockerls', 'eslint', 'html', 'tsserver', 'lua_ls', 'marksman', 'sqlls', 'taplo', 'vuels', 'rust_analyzer',
+    -- for python
+    'ruff_lsp', 'pyright',
+  },
   automatic_installation = true
 })
