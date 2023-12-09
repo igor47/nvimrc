@@ -75,9 +75,45 @@ require("mason-lspconfig").setup_handlers({
     lspconfig.ruff_lsp.setup({
       capabilities = capabilities,
       on_attach = function (client, bufnr)
-        -- Disable hover in favor of Pyright
+        -- Disable hover in favor of Pyright/pylsp/jedi
         client.server_capabilities.hoverProvider = false
       end,
+    })
+  end,
+  ["pylsp"] = function ()
+    -- based on https://jdhao.github.io/2023/07/22/neovim-pylsp-setup/
+    lspconfig.pylsp.setup({
+      capabilities = capabilities,
+      flags = {
+        debounce_text_changes = 200,
+      },
+      settings = {
+        pylsp = {
+          plugins = {
+            -- formatter options all handled by ruff
+            black = { enabled = false },
+            autopep8 = { enabled = false },
+            yapf = { enabled = false },
+            -- linter options also handled by ruff
+            pylint = { enabled = false },
+            pyflakes = { enabled = false },
+            pycodestyle = { enabled = false },
+            -- import sorting also handled by ruff
+            pylsp_isort = { enabled = false },
+            -- type checker
+            pylsp_mypy = {
+              enabled = true,
+              -- the next two are incompatible; lets keep live mode on, performance may suffer
+              live_mode = true,
+              dmypy = false,
+              -- not sure if this does anything here...
+              strict = true,
+            },
+            -- auto-completion options
+            jedi_completion = { fuzzy = true },
+          },
+        },
+      },
     })
   end,
 })
