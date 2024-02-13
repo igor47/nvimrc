@@ -115,6 +115,9 @@ return packer.startup(function(use)
   use { 'NoahTheDuke/vim-just' }
   use { "IndianBoy42/tree-sitter-just" }
 
+  -- syntax highlight for helm templates
+  use { 'towolf/vim-helm' }
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

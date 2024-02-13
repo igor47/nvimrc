@@ -48,6 +48,11 @@ end
 -- https://github.com/neovim/nvim-lspconfig#suggested-configuration
 local lspconfig = require("lspconfig")
 
+-- allow picking different LSP servers in different projects
+if PYTHON_LSP == nil then
+  PYTHON_LSP = 'pyright'
+end
+
 -- we set up all available lsp servers automatically
 require("mason-lspconfig").setup_handlers({
   -- The first entry (without a key) will be the default handler
@@ -81,6 +86,8 @@ require("mason-lspconfig").setup_handlers({
     })
   end,
   ["pylsp"] = function ()
+    if PYTHON_LSP ~= 'pylsp' then return end
+
     -- based on https://jdhao.github.io/2023/07/22/neovim-pylsp-setup/
     lspconfig.pylsp.setup({
       capabilities = capabilities,
@@ -116,4 +123,10 @@ require("mason-lspconfig").setup_handlers({
       },
     })
   end,
+  ["pyright"] = function()
+    if PYTHON_LSP ~= 'pyright' then return end
+    lspconfig.pyright.setup({
+      capabilities = capabilities,
+    })
+  end
 })

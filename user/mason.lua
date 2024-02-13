@@ -20,7 +20,7 @@ require("mason-lspconfig").setup({
   ensure_installed = {
     'arduino_language_server', 'bashls', 'cssls', 'dockerls', 'eslint', 'html', 'tsserver', 'lua_ls', 'marksman', 'sqlls', 'taplo', 'vuels', 'rust_analyzer',
     -- for python
-    'ruff_lsp', 'pylsp',
+    'ruff_lsp', 'pylsp', 'pyright'
   },
   automatic_installation = true
 })
