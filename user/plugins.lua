@@ -84,7 +84,7 @@ return packer.startup(function(use)
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   -- treesitter
-  use { "nvim-treesitter/nvim-treesitter", tag = "v0.9.1" }
+  use { "nvim-treesitter/nvim-treesitter", tag = "v0.9.2" }
 
   -- lualine
   use { 'nvim-lualine/lualine.nvim', requires = { 'kyazdani42/nvim-web-devicons', opt = true } }
