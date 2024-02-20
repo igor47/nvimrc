@@ -51,16 +51,6 @@ require("lazy").setup({
   -- telescope
   {
     "nvim-telescope/telescope.nvim", tag = "0.1.3", dependencies = {'nvim-lua/plenary.nvim'},
-    config = function ()
-      local telescope = require("telescope.builtin")
-      local keymap = vim.keymap.set
-
-      keymap("n", "<C-p>", telescope.git_files, {})
-      --keymap("n", "<leader>ft", ":Telescope live_grep<CR>", opts)
-      --keymap("n", "<leader>fp", ":Telescope projects<CR>", opts)
-      keymap("n", "<leader>b", telescope.buffers, {})
-      keymap("n", "<leader>tj", telescope.current_buffer_fuzzy_find, {})
-    end
   },
   {
     "nvim-telescope/telescope-fzf-native.nvim",

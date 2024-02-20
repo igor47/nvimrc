@@ -24,6 +24,9 @@ telescope.setup {
     },
   },
   pickers = {
+    diagnostics = {
+      theme = "dropdown",
+    },
     buffers = {
       show_all_buffers = true,
       sort_lastused = true,
@@ -39,6 +42,18 @@ telescope.setup {
 }
 
 require('telescope').load_extension('fzf')
+
+local builtin = require("telescope.builtin")
+local keymap = vim.keymap.set
+
+keymap("n", "<C-p>", builtin.git_files, {})
+keymap("n", "<leader>b", builtin.buffers, {})
+keymap("n", "<leader>tj", builtin.current_buffer_fuzzy_find, {})
+keymap("n", "<leader>tg", builtin.live_grep, {})
+keymap("n", "<leader>tr", builtin.lsp_references, {})
+keymap("n", "<leader>td", builtin.lsp_definitions, {})
+keymap("n", "<leader>te", function () builtin.diagnostics({ bufnr = 0 }) end, {})
+keymap("n", "<leader>ts", builtin.treesitter, {})
 
 --[[ disable folds for telescope results. see:
   https://github.com/nvim-telescope/telescope.nvim/issues/991
