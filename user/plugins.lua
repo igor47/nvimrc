@@ -40,7 +40,7 @@ require("lazy").setup({
       "hrsh7th/cmp-nvim-lsp-signature-help",
 
       -- copilot from copilot.vim
-      "hrsh7th/cmp-copilot",
+      -- "hrsh7th/cmp-copilot",
     },
   },
 
@@ -83,7 +83,19 @@ require("lazy").setup({
   "jamessan/vim-gnupg",
 
   -- github copilot
-  "github/copilot.vim",
+  -- "github/copilot.vim",
+  -- trying to use the lua version of the copilot plugin:
+  -- see: https://tamerlan.dev/setting-up-copilot-in-neovim-with-sane-settings/
+  { "zbirenbaum/copilot.lua", cmd = "Copilot", event = "InsertEnter", config = function()
+      require("copilot").setup({})
+    end,
+  },
+  {
+    "zbirenbaum/copilot-cmp",
+    config = function()
+      require("copilot_cmp").setup()
+    end,
+  },
 
   -- syntax highlight for justfiles
   "NoahTheDuke/vim-just",
