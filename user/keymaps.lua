@@ -43,6 +43,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
     keymap("n", "gD", vim.lsp.buf.declaration, opts)
     keymap("n", "gd", vim.lsp.buf.definition, opts)
+    keymap("n", "gy", vim.lsp.buf.type_definition, opts)
     keymap("n", "K", vim.lsp.buf.hover, opts)
     keymap("n", "gI", vim.lsp.buf.implementation, opts)
     keymap("n", "gr", vim.lsp.buf.references, opts)
@@ -57,3 +58,17 @@ vim.api.nvim_create_autocmd('LspAttach', {
     keymap("n", "<leader>aq", vim.diagnostic.setloclist, opts)
   end
 })
+
+
+function ReplaceQuotedStringUnderCursor()
+    local line = vim.api.nvim_get_current_line()
+    local col = vim.api.nvim_win_get_cursor(0)[2]
+    local start_pos, _ = line:sub(1, col+1):find('"[^"]*')
+    local end_pos, _ = line:find('"', (start_pos or 0) + 1)
+    if start_pos and end_pos then
+        local pattern = vim.fn.escape(line:sub(start_pos+1, end_pos-1), '/')
+        local keys = vim.api.nvim_replace_termcodes('%s/' .. pattern .. '//g<LEFT><LEFT>', true, false, true)
+        vim.api.nvim_feedkeys(':' .. keys, 'n', false)
+    end
+end
+keymap('n', '<Leader>sq', [[:lua ReplaceQuotedStringUnderCursor()<CR>]], {noremap = true, silent = true})
