@@ -65,3 +65,13 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, {
 -- 		end
 -- 	end,
 -- })
+--
+-- refresh files that changed outside of vim
+-- see: https://www.reddit.com/r/neovim/comments/11jref7/how_can_i_reload_a_buffer_automatically_as_soon/
+local group = vim.api.nvim_create_augroup("CheckTimeOnEvent", { clear = true })
+
+-- check file changes on focus, when a widow is entered, and when the cursor is idle for some time
+vim.api.nvim_create_autocmd({ "FocusGained", "WinEnter", "CursorHold" }, {
+  group = group,
+  command = "checktime"
+})
