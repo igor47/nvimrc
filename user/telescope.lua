@@ -22,6 +22,19 @@ telescope.setup {
         ["<C-k>"] = actions.move_selection_previous,
       },
     },
+
+    -- see:
+    -- https://stackoverflow.com/a/75424071/153995
+    vimgrep_arguments = {
+      'rg',
+      '--color=never',
+      '--no-heading',
+      '--with-filename',
+      '--line-number',
+      '--column',
+      '--smart-case',
+      '--hidden',
+    },
   },
   pickers = {
     diagnostics = {
