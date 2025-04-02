@@ -126,8 +126,8 @@ cmp.setup {
     end,
   },
   sources = {
-    { name = "copilot" },
-    { name = "nvim_lsp" },
+    { name = "copilot", priority = 100 },
+    { name = "nvim_lsp", priority = 50 },
     { name = "nvim_lua" },
     { name = "luasnip" },
     { name = "buffer" },
