@@ -30,7 +30,6 @@ require("lazy").setup({
     dependencies = {
       "hrsh7th/cmp-buffer",  -- buffer completions
       "hrsh7th/cmp-path",    -- path completions
-      "saadparwaiz1/cmp_luasnip",  -- complete snippets
 
       -- for lua specifically (do we need this?)
       "hrsh7th/cmp-nvim-lua",
@@ -43,10 +42,6 @@ require("lazy").setup({
       -- "hrsh7th/cmp-copilot",
     },
   },
-
-  -- snippets
-  "L3MON4D3/LuaSnip",  --snippet engine
-  "rafamadriz/friendly-snippets", -- a bunch of snippets to use
 
   -- telescope
   {
@@ -73,9 +68,6 @@ require("lazy").setup({
   --  mason
   { "williamboman/mason.nvim" },  -- installs external plugins e.g. language servers
   { "williamboman/mason-lspconfig.nvim" },
-
-  -- null-ls (for formatters and linters)
-  "jose-elias-alvarez/null-ls.nvim",
 
   -- colorizer sets colors on color strings -- what fun!
   "norcalli/nvim-colorizer.lua",
