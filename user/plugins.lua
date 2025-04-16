@@ -54,13 +54,13 @@ require("lazy").setup({
   },
 
   -- treesitter
-  { "nvim-treesitter/nvim-treesitter", tag = "v0.9.2", build = ":TSUpdate" },
+  { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 
   -- lualine
   { 'nvim-lualine/lualine.nvim', dependencies = { 'kyazdani42/nvim-web-devicons' } },
 
   -- indent line
-  { "lukas-reineke/indent-blankline.nvim", tag = "v2.20.2" },
+  { "lukas-reineke/indent-blankline.nvim", tag = "v3.9.0", main = "ibl", opts = {} },
 
   -- LSP configure
   { "neovim/nvim-lspconfig" },  -- to configure built-in LSP
