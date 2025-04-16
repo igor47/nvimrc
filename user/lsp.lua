@@ -43,6 +43,10 @@ if cmp_status_ok then
   capabilities = cmp_nvim_lsp.default_capabilities()
 end
 
+-- should set this to utf-8 for, e.g. rust lsp
+capabilities.general = capabilities.general or {}
+capabilities.general.positionEncodings = { "utf-16" }
+
 -- we need to set up each language server we use
 -- see:
 -- https://github.com/neovim/nvim-lspconfig#suggested-configuration
