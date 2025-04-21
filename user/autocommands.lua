@@ -3,7 +3,7 @@
 vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   pattern = { "*.py", "*.rb", "*.js", "*.ts", "*.tsx", "*.jsx", "*.php" },
   callback = function()
-		vim.cmd("%s^\\s\\+$^^e")
+		vim.cmd([[%s/\s\+$//e]])
   end,
 })
 
@@ -67,11 +67,27 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, {
 -- })
 --
 -- refresh files that changed outside of vim
--- see: https://www.reddit.com/r/neovim/comments/11jref7/how_can_i_reload_a_buffer_automatically_as_soon/
-local group = vim.api.nvim_create_augroup("CheckTimeOnEvent", { clear = true })
+-- Enable autoread globally
+vim.o.autoread = true
 
--- check file changes on focus, when a widow is entered, and when the cursor is idle for some time
-vim.api.nvim_create_autocmd({ "FocusGained", "WinEnter", "CursorHold" }, {
-  group = group,
-  command = "checktime"
+local refresh_group = vim.api.nvim_create_augroup("AutoRefreshFiles", { clear = true })
+
+-- Check file changes on focus, when a window is entered, and when the cursor is idle for some time
+vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
+  group = refresh_group,
+  pattern = "*",
+  callback = function()
+    if vim.fn.getcmdwintype() == "" then
+      vim.cmd("checktime")
+    end
+  end,
+})
+
+-- Notification after file changes detected
+vim.api.nvim_create_autocmd("FileChangedShellPost", {
+  group = refresh_group,
+  pattern = "*",
+  callback = function()
+    vim.notify("File changed on disk. Buffer reloaded.", vim.log.levels.INFO)
+  end,
 })
